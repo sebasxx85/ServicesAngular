@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { Curso } from 'src/app/models/curso';
+import { CursoAlphaService } from 'src/app/services/curso-alpha.service';
 import { CursoService } from 'src/app/services/curso.service';
 
 @Component({
@@ -11,10 +11,12 @@ import { CursoService } from 'src/app/services/curso.service';
 export class CursoComponent implements OnInit {
 cursos!: Curso[];
 
+esconder : boolean = true; //La usare para esconder con la funcion delete
+
 
   constructor( //los servicios no se instancian sino que se inyectan
     private cursoService: CursoService,
-    private fb: FormBuilder
+    private cursoAlphaService: CursoAlphaService
   )
   {}
 
@@ -22,8 +24,15 @@ cursos!: Curso[];
     this.cursos = this.cursoService.obtenerCursos();
   }
 
-  eventoBoton(){
-    alert("Te has apuentado al curso de: ");
+  eventoBoton(curso: Curso){
+    alert("FELICIDADES, Te has Apuntado al curso de: " + curso.nombre);
+  }
+
+  EliminarCurso(curso: Curso){
+    alert("Estas seguro de querer eliminar este curso?")
+    //curso.nombre = "Borrado" ;
+    this.esconder = false;
+
   }
 
   agregarCurso(){
@@ -37,8 +46,12 @@ cursos!: Curso[];
       imagen: 'http://blog.programacionytecnologia.com/wp-content/uploads/2023/06/Metodologia-KANBAN-Introduccion.png',
       estudiante: [{ nombre: 'Karen', apellido: 'bustos', usuario: 'sbustos', contrasena: '123' }]
     }
+
+    this.esconder = true;
+    //this.CursoAlphaService.agregarCurso(curso);
   };
 
-  //this.cursoService.agregarCurso(curso);
+  
+  
 
 }

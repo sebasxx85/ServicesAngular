@@ -22,7 +22,8 @@ import { CursoService } from './services/curso.service';
   ],
   providers: [
 
-  //  {provide: CursoService, useExisting: CursoAlphaService}
+    //{provide: CursoService, useExisting: CursoAlphaService},
+   //{provide: CursoService, useClass: CursoAlphaService}
   ], //Aca se colocan los servicios desde la v6 hacia antras
   bootstrap: [AppComponent]
 })

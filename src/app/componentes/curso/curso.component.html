@@ -4,27 +4,27 @@
 <div class="row">
     <div *ngFor="let curso of cursos" class="col-md-3">
 
-        <mat-card>
-            <mat-card-header>
+        <mat-card >
+            <mat-card-header >
                 <mat-card-title>{{curso.nombre}}</mat-card-title>
                 <mat-card-subtitle>Comision: {{curso.comision}}</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image [src]="curso.imagen" alt="Blog">
-            <mat-card-content>
+            <mat-card-content *ngIf="esconder">
                 <p>Impartido por {{curso.profesor}}</p>
                 <p>Inicia El: {{curso.fechaInicio | date: 'dd/MM/YYYY'}}</p>
                 <p>Finaliza El: {{curso.fechaFin | date: 'dd/MM/YYYY'}}</p>
                 <p>Numero de estudiantes: {{curso.estudiante.length}}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button color="primary" (click)="eventoBoton()">Agregar</button>
+                <button mat-button color="primary" (click)="eventoBoton(curso)">Agregar</button>
                 <!--Los nombres de los iconos estan google fonts-->
                 <button mat-icon-button color="primary" (click)="agregarCurso()">
                     <mat-icon>edit</mat-icon>
                 </button>
 
-                <button mat-icon-button>
-                    <mat-icon>delete</mat-icon>
+                <button mat-icon-button color="warn" (click)="EliminarCurso(curso)">
+                    <mat-icon >delete</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>
