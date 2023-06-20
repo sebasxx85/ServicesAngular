@@ -8,12 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { CursoAlphaService } from './services/curso-alpha.service';
 import { CursoService } from './services/curso.service';
+import { CursoPromiseComponent } from './componentes/curso-promise/curso-promise.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EstudianteComponent,
-    CursoComponent
+    CursoComponent,
+    CursoPromiseComponent,
+    
   ],
   imports: [
     BrowserModule,

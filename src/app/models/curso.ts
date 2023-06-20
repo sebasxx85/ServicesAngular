@@ -6,6 +6,7 @@ export interface Curso{
     profesor: string;
     fechaInicio: Date;
     fechaFin: Date;
+    //Las que vienen no se ocupan en curso-promise
     InscripcionAbierta: boolean;
     imagen: string; 
     estudiante: Estudiante[];
