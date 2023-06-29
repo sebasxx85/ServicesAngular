@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { CursoPromiseService } from 'src/app/services/curso-promise.service';
 
@@ -9,6 +10,8 @@ import { CursoPromiseService } from 'src/app/services/curso-promise.service';
 })
 export class CursoPromiseComponent {
   cursos!: Curso[];
+  
+  cursosObservable!: Observable<Curso[]>;
 
   constructor(
     private cursoPromiseService: CursoPromiseService 
